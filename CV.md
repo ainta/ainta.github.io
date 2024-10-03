@@ -6,7 +6,8 @@ title: CV
 <br/>
 
 # Education
-- Seoul National University (2016 - Current)
+- Georgia Institute of Technology (2024 - Current)
+- Seoul National University (2016 - 2023)
   - 34 Months of (Alternative) Mandatory Military Service
 - Seoul Science High School (2013 - 2015)
 
@@ -21,6 +22,11 @@ title: CV
 - Facebook Hacker Cup Final Round - 16th(2021), 18th(2019)
 
 - Presidential Science Scholarship - 8-semester scholarship for undergraduate studies
+
+# Research Experience
+
+- Max Planck Institute of Informatics : Jan 2024 - Apr 2024
+  - Research Internship about Theoretical Computer Science(TCS).
 
 # Work Experience
 

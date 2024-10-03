@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sunghyeon Jo
-subtitle: Computer Science & Engineering Department, Seoul National Univeristy
+subtitle: Ph.D. Candidate in Computer Science at Georgia Institute of Technology
 cover-img: #/assets/img/itu-seokho-m4.jpg
 ---
 
@@ -14,5 +14,5 @@ cover-img: #/assets/img/itu-seokho-m4.jpg
 ## Contact
 
 ```
-Email: ainta[at]snu.ac.kr or ainta98[at]gmail.com
+Email: sjo65[at]gatech.edu or ainta98[at]gmail.com
 ```
