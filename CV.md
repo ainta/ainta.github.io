@@ -1,17 +1,16 @@
 ---
 layout: page
 title: CV
+permalink: /cv/
 ---
 
-<br/>
-
-# Education
+### Education
 - Georgia Institute of Technology (2024 - Current)
 - Seoul National University (2016 - 2023)
   - 34 Months of (Alternative) Mandatory Military Service
 - Seoul Science High School (2013 - 2015)
 
-# Awards and Honors
+## Awards and Honors
 
 - ICPC World Finals - Gold Medalist(2020 - 2nd place, 2017 - 3rd place)
 - IOI(International Olympiad in Informatics) - Gold Medalist(2015), Silver Medalist(2014)
@@ -23,12 +22,12 @@ title: CV
 
 - Presidential Science Scholarship - 8-semester scholarship for undergraduate studies
 
-# Research Experience
+## Research Experience
 
 - Max Planck Institute of Informatics : Jan 2024 - Apr 2024
   - Research Internship about Theoretical Computer Science(TCS).
 
-# Work Experience
+## Work Experience
 
 - [AIRS Medical](https://airsmed.com/) : Mar 2022 - Sep 2023
   - Research Scientist in SwiftMR team. 
