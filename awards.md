@@ -4,53 +4,62 @@ title: Awards
 permalink: /awards/
 ---
 
-## 2026
-- **M(IT)² 2025–26 Winter** — In-Person Advanced Division, Team Round, 1st place (team T1: with Jaehyun Koo and Gennady Korotkevich).
+<dl class="awards-list">
+  <dt>2026</dt>
+  <dd>M(IT)² 2025–26 Winter — In-Person Advanced Division, Team Round, 1st place (team T1: with Jaehyun Koo and Gennady Korotkevich).</dd>
 
-## 2025
-- **M(IT)² 2025 Winter** — Advanced Division, 2nd place (team T1: with Jaehyun Koo and Jongwon Lee).
+  <dt>2025</dt>
+  <dd>M(IT)² 2025 Winter — Advanced Division, 2nd place (team T1: with Jaehyun Koo and Jongwon Lee).</dd>
 
-## 2024
-- **Meta Hacker Cup Finals** — 13th place.
+  <dt>2024</dt>
+  <dd>Meta Hacker Cup Finals — 13th place.</dd>
 
-## 2023
-- **Yandex Cup Algorithm Finals** — 9th place.
+  <dt>2023</dt>
+  <dd>Yandex Cup Algorithm Finals — 9th place.</dd>
 
-## 2022
-- **Google Hash Code World Finals** — 14th place (team).
+  <dt>2022</dt>
+  <dd>Google Hash Code World Finals — 14th place (team).</dd>
 
-## 2021
-- **ICPC 2020 World Finals**, Moscow (held October 2021) — 2nd place (Seoul National University, *Cafe Mountain*; with Jeyeon Si and Sangsoo Park).
-- **Google Code Jam World Finals** — 12th place.
-- **Meta Hacker Cup Finals** — 16th place.
-- **Google Hash Code World Finals** — 17th place (team).
+  <dt>2021</dt>
+  <dd>
+    ICPC 2020 World Finals, Moscow (held October 2021) — 2nd place (Seoul National University, <em>Cafe Mountain</em>; with Jeyeon Si and Sangsoo Park).<br>
+    Google Code Jam World Finals — 12th place.<br>
+    Meta Hacker Cup Finals — 16th place.<br>
+    Google Hash Code World Finals — 17th place (team).
+  </dd>
 
-## 2020
-- **Google Code Jam World Finals** — 8th place.
+  <dt>2020</dt>
+  <dd>Google Code Jam World Finals — 8th place.</dd>
 
-## 2019
-- **Google Code Jam World Finals** — 20th place.
-- **Samsung Collegiate Programming Cup** — 1st place.
-- **Meta Hacker Cup Finals** — 18th place.
+  <dt>2019</dt>
+  <dd>
+    Google Code Jam World Finals — 20th place.<br>
+    Samsung Collegiate Programming Cup — 1st place.<br>
+    Meta Hacker Cup Finals — 18th place.
+  </dd>
 
-## 2018
-- **Google Code Jam World Finals** — 24th place.
-- **Samsung Collegiate Programming Cup** — 2nd place.
+  <dt>2018</dt>
+  <dd>
+    Google Code Jam World Finals — 24th place.<br>
+    Samsung Collegiate Programming Cup — 2nd place.
+  </dd>
 
-## 2017
-- **ACM-ICPC World Finals**, Rapid City — 3rd place (Seoul National University, *ACGTeam*; with Jeehak Yoon and Seokhwan Choi).
+  <dt>2017</dt>
+  <dd>ACM-ICPC World Finals, Rapid City — 3rd place (Seoul National University, <em>ACGTeam</em>; with Jeehak Yoon and Seokhwan Choi).</dd>
 
-## 2016
-- **Russian Code Cup** — 7th place.
+  <dt>2016</dt>
+  <dd>Russian Code Cup — 7th place.</dd>
 
-## 2015
-- **International Olympiad in Informatics (IOI)** — Gold Medal (7th).
+  <dt>2015</dt>
+  <dd>International Olympiad in Informatics (IOI) — Gold Medal (7th).</dd>
 
-## 2014
-- **International Olympiad in Informatics (IOI)** — Silver Medal.
+  <dt>2014</dt>
+  <dd>International Olympiad in Informatics (IOI) — Silver Medal.</dd>
 
-## 2012
-- **[IPSC (Internet Problem Solving Contest)](https://ipsc.ksp.sk/2012/results/secondary/single)** — Secondary School Division, single-person teams, **1st place** (as *Kaizero*).
+  <dt>2012</dt>
+  <dd><a href="https://ipsc.ksp.sk/2012/results/secondary/single">IPSC (Internet Problem Solving Contest)</a> — Secondary School Division, single-person teams, 1st place (as <em>Kaizero</em>).</dd>
+</dl>
 
 ## Scholarships
-- **Presidential Science Scholarship** (Korea) — full undergraduate scholarship, 8 semesters.
+
+- Presidential Science Scholarship (Korea) — full undergraduate scholarship, 8 semesters.

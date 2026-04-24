@@ -255,6 +255,22 @@ img {
 }
 .pager a:hover { color: #0066cc; text-decoration: underline; }
 
+/* --- awards page: compact year-grouped grid --- */
+dl.awards-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 22px;
+  row-gap: 10px;
+  margin: 1em 0 2em;
+}
+dl.awards-list dt {
+  font-weight: 700;
+  color: #555;
+  padding-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+dl.awards-list dd { margin: 0; }
+
 /* --- social icon row --- */
 ul.social-links {
   list-style: none;
