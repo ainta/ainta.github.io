@@ -189,7 +189,7 @@ $$
 \begin{aligned}
 GFT(p,F) &= \mathbb{E}[\mathbf{1}_{B \ge p >S}(B-S)] \\
  &= \mathbb{E}[\mathbf{1}_{B \ge p >S}(B-p)] +\mathbb{E}[\mathbf{1}_{B \ge p >S}(p-S)] \\
- &= \mathbb{E}[\mathbf{1}_{B \ge p}(B-p)]Pr(S<p) +\mathbb{E}[\mathbf{1}_{p >S}(p-S)]Pr(B \ge p) \\
+ &= \mathbb{E}[\mathbf{1}_{B \ge p}(B-p)]Pr(S < p) +\mathbb{E}[\mathbf{1}_{p > S}(p-S)]Pr(B \ge p) \\
  &= F(p) \int_{p}^{\infty} (1-F(x)) dx + (1-F(p)) \int_{0}^{p} F(x) dx \\
 \end{aligned}
 $$

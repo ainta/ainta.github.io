@@ -125,7 +125,7 @@ $B'-y+x$가 base가 아니라고 가정하자. 그러면 $B' - y + x$는 어떤 
 
 **성질 5.** $G = (X, Y, E)$는 bipartition $(X,Y)$를 가지는 bipartite graph이다. $G$가 unique perfect matching $N$을 가질 때, 다음 조건을 만족하도록 $X$의 원소들을 $x_1, ..., x_t$, $Y$의 원소들을 $y_1, ..., y_t$로 라벨링하는 것이 가능하다:
 
-조건: $N = \left\lbrace(x_1, y_1), ..., (x_t, y_t) \right\rbrace$이고, 모든 $i<j$에 대해  $(x_i ,y_i) \notin E$ 를 만족한다.
+조건: $N = \left\lbrace(x_1, y_1), ..., (x_t, y_t) \right\rbrace$이고, 모든 $i < j$에 대해  $(x_i ,y_i) \notin E$ 를 만족한다.
 
 성질 5의 경우 증명이 간단하지 않아 생략한다. 그러나 이분 그래프의 perfect matching에서 중요한 성질 중 하나이므로 알아두면 좋을 것이다. 그러면 이제 성질 5를 이용해 정리 4를 증명해보자.
 
