@@ -9,7 +9,7 @@ language: en
 # Key = label, value = relative path or absolute URL.
 navbar-links:
   Blog: "/blog"
-  CV: "/cv"
+  Awards: "/awards"
   GitHub: "https://github.com/ainta"
 
 # --- Build ---
@@ -18,8 +18,6 @@ timezone: "America/Vancouver"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 8
-paginate_path: "/blog/:num/"
 
 kramdown:
   input: GFM
@@ -51,5 +49,4 @@ exclude:
   - vendor/
 
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
