@@ -22,12 +22,10 @@ permalink: /awards/
 
   <dt>2021</dt>
   <dd>
-    <ul>
-      <li><strong>ICPC 2020 World Finals</strong>, Moscow (held October 2021) — 2nd place (Seoul National University, <em>Cafe Mountain</em>; with Jeyeon Si and Sangsoo Park).</li>
-      <li><strong>Google Code Jam World Finals</strong> — 12th place.</li>
-      <li><strong>Meta Hacker Cup Finals</strong> — 16th place.</li>
-      <li><strong>Google Hash Code World Finals</strong> — 17th place (team).</li>
-    </ul>
+    <strong>ICPC 2020 World Finals</strong>, Moscow (held October 2021) — 2nd place (Seoul National University, <em>Cafe Mountain</em>; with Jeyeon Si and Sangsoo Park).<br>
+    <strong>Google Code Jam World Finals</strong> — 12th place.<br>
+    <strong>Meta Hacker Cup Finals</strong> — 16th place.<br>
+    <strong>Google Hash Code World Finals</strong> — 17th place (team).
   </dd>
 
   <dt>2020</dt>
@@ -35,19 +33,15 @@ permalink: /awards/
 
   <dt>2019</dt>
   <dd>
-    <ul>
-      <li><strong>Google Code Jam World Finals</strong> — 20th place.</li>
-      <li><strong>Samsung Collegiate Programming Cup</strong> — 1st place.</li>
-      <li><strong>Meta Hacker Cup Finals</strong> — 18th place.</li>
-    </ul>
+    <strong>Google Code Jam World Finals</strong> — 20th place.<br>
+    <strong>Samsung Collegiate Programming Cup</strong> — 1st place.<br>
+    <strong>Meta Hacker Cup Finals</strong> — 18th place.
   </dd>
 
   <dt>2018</dt>
   <dd>
-    <ul>
-      <li><strong>Google Code Jam World Finals</strong> — 24th place.</li>
-      <li><strong>Samsung Collegiate Programming Cup</strong> — 2nd place.</li>
-    </ul>
+    <strong>Google Code Jam World Finals</strong> — 24th place.<br>
+    <strong>Samsung Collegiate Programming Cup</strong> — 2nd place.
   </dd>
 
   <dt>2017</dt>

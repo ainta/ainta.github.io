@@ -270,14 +270,7 @@ dl.awards-list dt {
   font-variant-numeric: tabular-nums;
 }
 dl.awards-list dd { margin: 0; }
-dl.awards-list dd ul {
-  margin: 0;
-  padding-left: 1.2em;
-  list-style: disc;
-}
-dl.awards-list dd ul li {
-  margin: 0.2em 0;
-}
+dl.awards-list dd br + strong { display: inline-block; margin-top: 4px; }
 
 /* --- social icon row --- */
 ul.social-links {
