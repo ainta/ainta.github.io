@@ -88,7 +88,7 @@ SOAP scheduling policy는 다음과 같습니다.
 - rank function $r(d,a) \rightarrow \mathcal{R}$  ($d$: descriptor, $a$: age)
 - 어느 시점이든지, minimum rank의 job을 serve (tie-breaking rule: FCFS)
 
-앞으로 다룰 SOAP policy들에서 rank들의 set $\mathcal{R}$은 주로 $\mathbb{R}$이거나 $\mathbb{R} \times \mathbb{R}$입니다. 이를 각각 실수 $r$이나 순서쌍 $<r1, r2>$로 표현할 것입니다.
+앞으로 다룰 SOAP policy들에서 rank들의 set $\mathcal{R}$은 주로 $\mathbb{R}$이거나 $\mathbb{R} \times \mathbb{R}$입니다. 이를 각각 실수 $r$이나 순서쌍 $(r_1, r_2)$로 표현할 것입니다.
 
 ### Examples of SOAP policies
 
