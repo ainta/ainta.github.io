@@ -13,7 +13,7 @@ I'm also an active competitive programmer, long-time participant at IOI, ICPC, a
 
 ## News
 
-- Our paper *ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz* (w/ V. Kolesnikov and Y. Yang) was accepted to **ACM CCS 2026**.
+- Our paper *[ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz](https://eprint.iacr.org/2026/828)* (w/ V. Kolesnikov and Y. Yang) was accepted to **ACM CCS 2026**.
 - An AI-assisted bug-hunting agent our team has been building discovered [a critical consensus vulnerability](https://github.com/cometbft/cometbft/security/advisories/GHSA-c32p-wcqj-j677) in **CometBFT**, affecting 40+ Cosmos-based chains. [Writeup](https://qedaudit.io/blog/tachyon/).
 
 ## Selected Achievements
@@ -30,8 +30,8 @@ See [Awards](/awards) for the full list and [blog](/blog) for algorithm and cryp
 
 ## Publications
 
-1. ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz.
-   **Sunghyeon Jo**, Vladimir Kolesnikov, and Yibin Yang. *ACM CCS 2026.*
+1. [ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz](https://eprint.iacr.org/2026/828).
+   **Sunghyeon Jo**, Vladimir Kolesnikov, and Yibin Yang. *ACM CCS 2026.* [[ePrint]](https://eprint.iacr.org/2026/828)
 
 <ul class="social-links">
   <li><a href="mailto:sjo65@gatech.edu" aria-label="Email" title="sjo65@gatech.edu"><i class="fa-solid fa-envelope"></i></a></li>
