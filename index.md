@@ -30,7 +30,10 @@ See [Awards](/awards) for the full list and [blog](/blog) for algorithm and cryp
 
 ## Publications
 
-1. [ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz](https://eprint.iacr.org/2026/828).
+1. [Interleaving Stability for Mutual Correlated Agreement and Curve Decodability](https://eprint.iacr.org/2026/891).
+   **Sunghyeon Jo**. *Preprint.* [[ePrint]](https://eprint.iacr.org/2026/891)
+
+2. [ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz](https://eprint.iacr.org/2026/828).
    **Sunghyeon Jo**, Vladimir Kolesnikov, and Yibin Yang. *ACM CCS 2026.* [[ePrint]](https://eprint.iacr.org/2026/828)
 
 <ul class="social-links">
