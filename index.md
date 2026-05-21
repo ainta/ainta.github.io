@@ -30,10 +30,13 @@ See [Awards](/awards) for the full list and [blog](/blog) for algorithm and cryp
 
 ## Publications
 
-1. [Interleaving Stability for Mutual Correlated Agreement and Curve Decodability](https://eprint.iacr.org/2026/891).
+1. [Sequence-Level Security for Active Weighted Signature Reconfiguration](https://eprint.iacr.org/2026/1013).
+   **Sunghyeon Jo**. *Preprint.* [[ePrint]](https://eprint.iacr.org/2026/1013)
+
+2. [Interleaving Stability for Mutual Correlated Agreement and Curve Decodability](https://eprint.iacr.org/2026/891).
    **Sunghyeon Jo**. *Preprint.* [[ePrint]](https://eprint.iacr.org/2026/891)
 
-2. [ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz](https://eprint.iacr.org/2026/828).
+3. [ZEE200: Zero Knowledge for Everything and Everyone @ 200 KHz](https://eprint.iacr.org/2026/828).
    **Sunghyeon Jo**, Vladimir Kolesnikov, and Yibin Yang. *ACM CCS 2026.* [[ePrint]](https://eprint.iacr.org/2026/828)
 
 <ul class="social-links">
