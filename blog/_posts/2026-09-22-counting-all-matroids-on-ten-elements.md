@@ -73,34 +73,24 @@ For rank-five parents on nine elements, there are at most $\binom94=126$ hyperpl
 
 Counting extensions parent by parent does not yet count ten-element matroids up to isomorphism. It counts matroids with a distinguished element $e$. A matroid can have several orbits of elements, so neither summing the extension counts up to parent automorphisms nor dividing such a sum by ten gives the answer.
 
-Let $F_{10,r}(\lambda)$ be the number of labeled rank-$r$ matroids fixed by a permutation of cycle type $\lambda\vdash10$. Set
+Write $u_{10,r}$ for the number of rank-$r$ matroids on ten elements up to isomorphism. Burnside's lemma gives
 
 $$
-z_\lambda=\prod_j j^{a_j(\lambda)}a_j(\lambda)!,
-\qquad
-u_{10,r}=\sum_{\lambda\vdash10}\frac{F_{10,r}(\lambda)}{z_\lambda},
+u_{10,r}=\frac{1}{10!}\sum_{\sigma\in S_{10}}
+\#\{\text{labeled rank-}r\text{ matroids fixed by }\sigma\}.
 $$
 
-where $a_j(\lambda)$ is the number of cycles of length $j$. This is Burnside's lemma grouped by cycle type.
+The fixed count depends only on the permutation's cycle type, leaving 42 cases.
 
-There are 42 cycle types in $S_{10}$. Thirty have a fixed point. For $\lambda=\mu\cup(1)$, delete such a point $e$ from each fixed matroid. The result is a nine-element parent $N$, and the remaining permutation is an automorphism $g$ of $N$. Let $c(N,g)$ count the $g$-invariant nonempty modular cuts. Each parent class has $9!/\lvert\operatorname{Aut}(N)\rvert$ labeled versions, so we weight its automorphisms of type $\mu$ by that number and by $c(N,g)$.
+Thirty of those types have a fixed point. Choose one such point $e$ and delete it. If $e$ is not a coloop, the deletion is a rank-$r$ matroid $N$ on nine elements, and the restricted permutation is an automorphism $g$ of $N$. The fixed extensions are exactly the nonempty modular cuts of $N$ invariant under $g$. If $e$ is a coloop, its deletion has rank $r-1$ and has exactly one coloop extension. We generate one representative of each parent class and account for its different labelings and automorphisms when adding these contributions. At rank five, duality pairs the rank-four coloop parents with the rank-five parents.
 
-We must also count extensions in which $e$ is a coloop. Their parents have rank $r-1$, and each such parent contributes one extension for every automorphism of type $\mu$. Let $T_{r,\mu}$ be the sum of these weighted cut and coloop contributions. At rank five, duality pairs the rank-four coloop parents with the rank-five cut parents, so the worker adds a $+1$ to each $c(N,g)$.
-
-There are $9!/z_\mu$ permutations of type $\mu$, all with the same fixed count. Therefore the labeled fixed count for one such permutation is
-
-$$
-F_{10,r}\bigl(\mu\cup(1)\bigr)
-=\frac{z_\mu T_{r,\mu}}{9!}.
-$$
-
-Only one representative per conjugacy class inside $\operatorname{Aut}(N)$ needs its cuts counted; multiply by that class's size. Two automorphisms with the same ground-set cycle type need not act alike on the flats of a particular parent.
+For speed, we count one representative per conjugacy class in a parent's automorphism group and multiply by the class size. Automorphisms with the same cycle type on the nine elements can act differently on that parent's flats.
 
 The other twelve types have no fixed point to delete. For one permutation $\sigma$ of each type, make one Boolean variable per orbit of $r$-subsets. A true variable selects every subset in that orbit as a basis. Require at least one basis and impose basis exchange: for selected $B,C$ and $a\in B\setminus C$, some $b\in C\setminus B$ must make $(B\setminus\lbrace a\rbrace)\cup\lbrace b\rbrace$ selected. These assignments are exactly the rank-$r$ matroids fixed by $\sigma$, so an exact #SAT solver gives the fixed count.
 
 The largest of these instances, cycle type $(2,2,2,2,2)$ at rank five, is split into 256 disjoint assignments and solved in parallel. A single formula for the basis-exchange axiom could also describe permutations with fixed points, but the identity permutation would leave all $\binom{10}{5}=252$ basis variables free. The parent calculation handles that case efficiently.
 
-Together, the two procedures supply every fixed-permutation count in Burnside's sum. Its division by $z_\lambda$ removes the labels, without assuming every matroid has the same number of element orbits.
+Together, the two procedures give the fixed count for every permutation type. Burnside's average then gives the number of isomorphism classes, without assuming every matroid has the same number of element orbits.
 
 ## Result
 
@@ -122,6 +112,6 @@ Adding rank five gives 3,232,000,741,644 matroids on ten elements up to isomorph
 
 The [compact implementation](https://github.com/ainta/matroid-count/tree/main/simple) has a 481-line C++ extension worker and a separate counting driver; it shares the nine-element parent generator and exact #SAT solver with the main repository. On a machine with 64 physical cores across two AMD EPYC 9354 processors, the standalone run used 64 workers and took 474 seconds to process all rank-five parents. Counting ranks three through five from the generated nine-element parents took 602 seconds in total. Generating those parents took a further 3.8 seconds.
 
-The same counting path reproduces $u_{6,3}=38$, $u_{7,3}=108$, $u_{8,4}=940$, and $u_{9,4}=190,214$. At ten elements it reproduces the previously known rank-three and [rank-four count](https://doi.org/10.1007/s00454-011-9388-y). All 42 rank-five fixed-permutation counts match the earlier calculation. The nine-element parents come from a generator run from the empty matroid, rather than from a downloaded catalogue; the full nine-element count is [383,172](https://arxiv.org/pdf/math/0702316).
+The same counting path reproduces 38 rank-three matroids on six elements, 108 on seven, 940 rank-four matroids on eight, and 190,214 on nine. At ten elements it reproduces the previously known rank-three and [rank-four count](https://doi.org/10.1007/s00454-011-9388-y). All 42 rank-five fixed-permutation counts match the earlier calculation. The nine-element parents come from a generator run from the empty matroid, rather than from a downloaded catalogue; the full nine-element count is [383,172](https://arxiv.org/pdf/math/0702316).
 
 The [reproduction instructions](https://github.com/ainta/matroid-count/blob/main/simple/README.md) give the commands for generating the parents and running this calculation.
