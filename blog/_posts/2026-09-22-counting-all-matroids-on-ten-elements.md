@@ -16,7 +16,7 @@ $$
 
 The common base size is the rank. We count matroids on ten elements up to relabeling.
 
-There are [383,172 matroids on nine elements](https://arxiv.org/pdf/math/0702316) up to isomorphism. For ten elements, we find 3,232,000,741,644. Listing one representative of each ten-element class would require trillions of objects. We count single-element extensions of nine-element matroids without listing the resulting matroids. Burnside's lemma then gives the number of isomorphism classes.
+There are [383,172 matroids on nine elements](https://arxiv.org/pdf/math/0702316) up to isomorphism. For ten elements, we find **3,232,000,741,644**. Listing one representative of each ten-element class would require trillions of objects. We count single-element extensions of nine-element matroids without listing the resulting matroids. Burnside's lemma then gives the number of isomorphism classes.
 
 ## Extensions as modular cuts
 
