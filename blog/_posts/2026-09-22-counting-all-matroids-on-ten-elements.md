@@ -10,7 +10,7 @@ tags: [matroid, algorithms, enumeration]
 
 Count all matroids on a ten-element ground set up to isomorphism. Loops, parallel elements, coloops, and disconnected matroids are included. Isomorphism relabels the ground set; it does not identify a matroid with its dual unless the two are isomorphic.
 
-A direct enumeration would have to list trillions of representatives: rank five alone has 3,222,227,959,444 classes. On nine elements, rank five has only 190,214 classes. We generate the nine-element matroids, count their single-element extensions in aggregate, and use symmetry to recover the ten-element isomorphism classes.
+There are [383,172 matroids on nine elements](https://arxiv.org/pdf/math/0702316) up to isomorphism. For ten elements, we find 3,232,000,741,644. Listing that many representatives would be impractical. We instead count single-element extensions of nine-element matroids in aggregate, then use symmetry to count isomorphism classes.
 
 ## Extensions as modular cuts
 
@@ -111,7 +111,7 @@ Duality gives the counts for ranks 6–10 from ranks 4–0. Summing all ranks gi
 
 The [simple implementation](https://github.com/ainta/matroid-count/tree/main/simple) has a 481-line C++ extension worker and a separate counting driver. The repository also supplies the nine-element parent generator and exact model counter. On a machine with 64 physical cores across two AMD EPYC 9354 processors, the standalone run used 64 workers and took 474 seconds to process all rank-five parents. Counting ranks three through five from the generated nine-element parents took 602 seconds in total. Generating those parents took a further 3.8 seconds.
 
-The implementation reproduces the known rank-three counts 38 on six elements and 108 on seven, and the rank-four counts 940 on eight and 190,214 on nine. At ten elements it agrees with the published rank-three and [rank-four counts](https://doi.org/10.1007/s00454-011-9388-y). The parent catalogue is generated from the empty matroid and reproduces the published [383,172 matroids on nine elements](https://arxiv.org/pdf/math/0702316).
+The implementation reproduces the known rank-three counts 38 on six elements and 108 on seven, and the rank-four counts 940 on eight and 190,214 on nine. At ten elements it agrees with the published rank-three and [rank-four counts](https://doi.org/10.1007/s00454-011-9388-y). The parent catalogue is generated from the empty matroid and agrees with the published nine-element enumeration.
 
 The [reproduction instructions](https://github.com/ainta/matroid-count/blob/main/simple/README.md) give the commands for generating the parents and running this calculation.
 
