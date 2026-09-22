@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Counting All Ten-Element Matroids Without Listing Them"
+title: "Counting All Matroids on Ten Elements"
 date: 2026-09-22
 author: ainta
 tags: [matroid, algorithms, enumeration]
@@ -8,24 +8,9 @@ tags: [matroid, algorithms, enumeration]
 
 ## Problem
 
-Count all matroids on a ten-element ground set **up to isomorphism**. Loops, parallel elements, coloops, and disconnected matroids are included. Isomorphism relabels the ground set; it does not identify a matroid with its dual unless the two are isomorphic.
+Count all matroids on a ten-element ground set up to isomorphism. Loops, parallel elements, coloops, and disconnected matroids are included. Isomorphism relabels the ground set; it does not identify a matroid with its dual unless the two are isomorphic.
 
-The answer is
-
-$$
-\boxed{3,232,000,741,644}.
-$$
-
-Rank five alone contributes **3,222,227,959,444** classes. Listing ten-element representatives would make the output itself enormous. The useful smaller object is a matroid on nine elements: there are **190,214** rank-five parent classes. We generate those parents, count all their single-element extensions at once, and recover the isomorphism classes by symmetry.
-
-All rank-preserving extensions use the **same counter for every parent**. The two counting subroutines have distinct jobs:
-
-~~~text
-permutation fixes an element  -> delete it; count extensions of a nine-element parent
-permutation fixes no element -> count invariant basis families by exact #SAT
-~~~
-
-There are 30 cycle types of the first kind and 12 of the second kind. That split is what makes the identity permutation, the largest case, manageable.
+A direct enumeration would have to list trillions of representatives: rank five alone has 3,222,227,959,444 classes. On nine elements, rank five has only 190,214 classes. We generate the nine-element matroids, count their single-element extensions in aggregate, and use symmetry to recover the ten-element isomorphism classes.
 
 ## Extensions as modular cuts
 
@@ -84,9 +69,9 @@ The graph counter branches by $i(G)=i(G-v)+i(G-N[v])$. It also removes isolated 
 
 For rank-five parents on nine elements, there are at most $\binom94=126$ hyperplanes and at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three. These bounds describe the local instances, not a polynomial-time guarantee. In particular, the familiar $3^{h/3}$ bound for maximal independent sets is not a bound for counting *all* independent sets here.
 
-## Getting the 42 fixed counts for Burnside's lemma
+## Burnside's lemma
 
-Counting extensions parent by parent does **not** yet count ten-element matroids up to isomorphism. It counts matroids with a distinguished element $e$. A matroid can have several orbits of elements, so neither summing the extension counts up to parent automorphisms nor dividing such a sum by ten gives the answer.
+Counting extensions parent by parent does not yet count ten-element matroids up to isomorphism. It counts matroids with a distinguished element $e$. A matroid can have several orbits of elements, so neither summing the extension counts up to parent automorphisms nor dividing such a sum by ten gives the answer.
 
 Let $F_{10,r}(\lambda)$ be the number of labeled rank-$r$ matroids fixed by a permutation of cycle type $\lambda\vdash10$. Set
 
@@ -98,18 +83,18 @@ $$
 
 where $a_j(\lambda)$ is the number of cycles of length $j$. This is Burnside's lemma grouped by cycle type.
 
-Thirty cycle types have a fixed point. For $\lambda=\mu\cup(1)$, delete such a point $e$ from each fixed matroid. The result is a nine-element parent $N$, and the remaining permutation is an automorphism $g$ of $N$. Let $c(N,g)$ count the $g$-invariant nonempty modular cuts. Each parent class has $9!/\lvert\operatorname{Aut}(N)\rvert$ labeled versions, so we weight its automorphisms of type $\mu$ by that number and by $c(N,g)$.
+There are 42 cycle types in $S_{10}$. Thirty have a fixed point. For $\lambda=\mu\cup(1)$, delete such a point $e$ from each fixed matroid. The result is a nine-element parent $N$, and the remaining permutation is an automorphism $g$ of $N$. Let $c(N,g)$ count the $g$-invariant nonempty modular cuts. Each parent class has $9!/\lvert\operatorname{Aut}(N)\rvert$ labeled versions, so we weight its automorphisms of type $\mu$ by that number and by $c(N,g)$.
 
 We must also count extensions in which $e$ is a coloop. Their parents have rank $r-1$, and each such parent contributes one extension for every automorphism of type $\mu$. Let $T_{r,\mu}$ be the sum of these weighted cut and coloop contributions. At rank five, duality pairs the rank-four coloop parents with the rank-five cut parents, so the worker adds a $+1$ to each $c(N,g)$.
 
 There are $9!/z_\mu$ permutations of type $\mu$, all with the same fixed count. Therefore the labeled fixed count for one such permutation is
 
 $$
-\boxed{F_{10,r}\bigl(\mu\cup(1)\bigr)
-=\frac{z_\mu T_{r,\mu}}{9!}.}
+F_{10,r}\bigl(\mu\cup(1)\bigr)
+=\frac{z_\mu T_{r,\mu}}{9!}.
 $$
 
-Only one representative per conjugacy class **inside** $\operatorname{Aut}(N)$ needs its cuts counted; multiply by that class's size. Two automorphisms with the same ground-set cycle type need not act alike on the flats of a particular parent.
+Only one representative per conjugacy class inside $\operatorname{Aut}(N)$ needs its cuts counted; multiply by that class's size. Two automorphisms with the same ground-set cycle type need not act alike on the flats of a particular parent.
 
 The other twelve types have no fixed point to delete. For one permutation $\sigma$ of each type, make one Boolean variable per orbit of $r$-subsets. A true variable selects every subset in that orbit as a basis. Require at least one basis and impose basis exchange: for selected $B,C$ and $a\in B\setminus C$, some $b\in C\setminus B$ must make $(B\setminus\lbrace a\rbrace)\cup\lbrace b\rbrace$ selected. These assignments are exactly the rank-$r$ matroids fixed by $\sigma$, so an exact #SAT solver gives the fixed count.
 
@@ -117,9 +102,9 @@ The largest of these instances, cycle type $(2,2,2,2,2)$ at rank five, is split 
 
 Together, the two procedures supply every fixed-permutation count in Burnside's sum. Its division by $z_\lambda$ removes the labels, without assuming every matroid has the same number of element orbits.
 
-## Runtime and result
+## Result
 
-The expensive stage is the rank-five parent calculation over **190,214** nine-element classes. Parent jobs run independently across cores. Within a job, propagating the modular-cut rules prunes the search and independent-set counting aggregates all remaining hyperplane choices. If a job has $\ell$ variables for flats of rank at most $r-2$ and $h$ hyperplane variables, $O(2^{\ell+h}\operatorname{poly}(\lvert\mathcal F(N)\rvert))$ is a loose upper bound. The structural reductions and measured workload explain the running time better than that bound.
+The expensive stage is the rank-five parent calculation over 190,214 nine-element classes. Parent jobs run independently across cores. Within a job, propagating the modular-cut rules prunes the search and independent-set counting aggregates all remaining hyperplane choices. If a job has $\ell$ variables for flats of rank at most $r-2$ and $h$ hyperplane variables, $O(2^{\ell+h}\operatorname{poly}(\lvert\mathcal F(N)\rvert))$ is a loose upper bound. The structural reductions and measured workload explain the running time better than that bound.
 
 | Rank | Unlabeled ten-element matroids |
 |:--|--:|
@@ -133,20 +118,10 @@ $$
 2(1+10+128+10,037+4,886,380,924)=9,772,782,200.
 $$
 
-Adding rank five gives **3,232,000,741,644** matroids on ten elements up to isomorphism.
+Adding rank five gives 3,232,000,741,644 matroids on ten elements up to isomorphism.
 
-The [compact implementation](https://github.com/ainta/matroid-count/tree/main/simple) has a 481-line C++ extension worker and a separate counting driver; it shares the nine-element parent generator and exact #SAT solver with the main repository. On a machine with 64 physical cores across two AMD EPYC 9354 processors, the standalone run used 64 workers and took **474 seconds** to process all rank-five parents. Counting ranks three through five from the generated nine-element parents took **602 seconds** in total. Generating those parents took a further **3.8 seconds**.
+The [compact implementation](https://github.com/ainta/matroid-count/tree/main/simple) has a 481-line C++ extension worker and a separate counting driver; it shares the nine-element parent generator and exact #SAT solver with the main repository. On a machine with 64 physical cores across two AMD EPYC 9354 processors, the standalone run used 64 workers and took 474 seconds to process all rank-five parents. Counting ranks three through five from the generated nine-element parents took 602 seconds in total. Generating those parents took a further 3.8 seconds.
 
 The same counting path reproduces $u_{6,3}=38$, $u_{7,3}=108$, $u_{8,4}=940$, and $u_{9,4}=190,214$. At ten elements it reproduces the previously known rank-three and [rank-four count](https://doi.org/10.1007/s00454-011-9388-y). All 42 rank-five fixed-permutation counts match the earlier calculation. The nine-element parents come from a generator run from the empty matroid, rather than from a downloaded catalogue; the full nine-element count is [383,172](https://arxiv.org/pdf/math/0702316).
 
-To generate the parents and rerun the compact calculation:
-
-~~~bash
-python3 scripts/setup.py
-make -j4 build/compact_worker build/colex_to_rank vendor/matroid-generator/build/IC
-python3 -S scripts/generate_parents.py --through 9 --jobs 64 \
-    --out runs/compact/parents
-python3 -S simple/count.py \
-    --parents runs/compact/parents \
-    --workdir runs/compact/count --jobs 64
-~~~
+The [reproduction instructions](https://github.com/ainta/matroid-count/blob/main/simple/README.md) give the commands for generating the parents and running this calculation.

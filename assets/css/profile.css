@@ -237,10 +237,6 @@ footer {
     font-size: 12px;
   }
 
-  nav a:nth-child(3) {
-    display: none;
-  }
-
   .content {
     padding-top: 42px;
     padding-bottom: 64px;
@@ -272,6 +268,24 @@ footer {
   .dated-list li {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+}
+
+@media (max-width: 520px) {
+  html {
+    scroll-padding-top: 110px;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 18px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 8px 14px;
   }
 }
 
