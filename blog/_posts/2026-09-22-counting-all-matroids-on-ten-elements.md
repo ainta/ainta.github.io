@@ -113,10 +113,10 @@ The rank-five parent calculation is the most expensive stage. It covers 190,214 
 
 Duality gives the counts for ranks 6–10 from ranks 4–0. Summing all ranks gives 3,232,000,741,644 matroids on ten elements up to isomorphism.
 
-The [simple implementation](https://github.com/ainta/matroid-count/tree/main/simple) has a 481-line C++ worker for extensions and a separate counting driver. The repository also provides a generator for nine-element parents and an exact model counter. We used 64 workers on a machine with 64 physical cores and two AMD EPYC 9354 processors. Processing the rank-five parents took 474 seconds. Counting ranks three through five from the generated parents took 602 seconds. Generating the parents took another 3.8 seconds.
+The [implementation](https://github.com/ainta/matroid-count) has a 481-line C++ worker for extensions and a separate counting driver. The repository also provides a generator for nine-element parents and an exact model counter. We used 64 workers on a machine with 64 physical cores and two AMD EPYC 9354 processors. Processing the rank-five parents took 474 seconds. Counting ranks three through five from the generated parents took 602 seconds. Generating the parents took another 3.8 seconds.
 
 The implementation reproduces the known rank-three counts: 38 on six elements and 108 on seven. It also reproduces the rank-four counts: 940 on eight elements and 190,214 on nine. At ten elements, it agrees with the published rank-three and [rank-four counts](https://doi.org/10.1007/s00454-011-9388-y). The parent generator starts from the empty matroid and reproduces the published nine-element count.
 
-The [reproduction instructions](https://github.com/ainta/matroid-count/blob/main/simple/README.md) give the commands for generating the parents and running this calculation.
+The [reproduction instructions](https://github.com/ainta/matroid-count/blob/main/docs/reproduction.md) give the commands for generating the parents and running this calculation.
 
 GPT-6 Astra helped discover and implement the optimized algorithms used in this calculation.
