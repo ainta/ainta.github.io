@@ -18,7 +18,7 @@ There are [383,172 matroids on nine elements](https://arxiv.org/pdf/math/0702316
 
 ## Extensions as modular cuts
 
-Let $N$ be a matroid of rank $r$ on nine elements. Add an element $e$ to obtain a single-element extension $M$ with $M\setminus e=N$ and the same rank. Write $E(N)$ for the ground set of $N$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $|B\cap X|$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ contains the elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure. For each flat $F$ of $N$, set
+Let $N$ be a matroid of rank $r$ on nine elements. Add an element $e$ to obtain a single-element extension $M$ with $M\setminus e=N$ and the same rank. Write $E(N)$ for the ground set of $N$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $\lvert B\cap X\rvert$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ contains the elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure. For each flat $F$ of $N$, set
 
 $$
 x_F=1\quad\Longleftrightarrow\quad e\in\operatorname{cl}_M(F).
@@ -68,7 +68,7 @@ To count these cuts, use one variable for each orbit of flats under $g$. The cor
 
 If $e$ is a coloop, $N$ has rank $r-1$ and gives one extension. At rank five, each such rank-four matroid is dual to a rank-five matroid on nine elements. Duality preserves its automorphism group.
 
-For a fixed label $e$, each isomorphism class of $N$ has $9!/|\operatorname{Aut}(N)|$ labelings of the other nine elements. For each cycle type on those nine elements, we sum the extension counts over these labelings and the relevant automorphisms. Dividing by the number of permutations of that type gives the number of matroids fixed by one permutation. Within $\operatorname{Aut}(N)$, we evaluate one representative per conjugacy class and multiply by its size. Automorphisms with the same cycle type on nine elements can act differently on the flats of $N$.
+For a fixed label $e$, each isomorphism class of $N$ has $9!/\lvert\operatorname{Aut}(N)\rvert$ labelings of the other nine elements. For each cycle type on those nine elements, we sum the extension counts over these labelings and the relevant automorphisms. Dividing by the number of permutations of that type gives the number of matroids fixed by one permutation. Within $\operatorname{Aut}(N)$, we evaluate one representative per conjugacy class and multiply by its size. Automorphisms with the same cycle type on nine elements can act differently on the flats of $N$.
 
 The other 12 cycle types have no fixed point. For one permutation $\sigma$ of each type, create a Boolean variable for each orbit of $r$-element subsets. A true variable selects every subset in its orbit as a basis. Require at least one basis and impose the basis exchange axiom. The satisfying assignments correspond exactly to the rank-$r$ matroids fixed by $\sigma$. An exact model counter counts them.
 
