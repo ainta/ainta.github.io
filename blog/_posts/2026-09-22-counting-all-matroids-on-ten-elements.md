@@ -18,26 +18,26 @@ There are [$383\,172$ matroids on nine elements](https://arxiv.org/pdf/math/0702
 
 ## Extensions as modular cuts
 
-Let $N$ be a matroid of rank $r$ on nine elements. Add an element $e$ to obtain a single-element extension $M$ with $M\setminus e=N$ and the same rank. Write $E(N)$ for the ground set of $N$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $\lvert B\cap X\rvert$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ contains the elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure. For each flat $F$ of $N$, set
+Let $N$ be a matroid of rank $r$ on nine elements, with ground set $E(N)$. Let $M$ be a single-element extension of $N$: $M\setminus e=N$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $\lvert B\cap X\rvert$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ is the set of elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure.
 
-$$
-x_F=1\quad\Longleftrightarrow\quad e\in\operatorname{cl}_M(F).
-$$
+The extension $M$ determines a set of flats of $N$: those $F$ for which $e\in\operatorname{cl}_M(F)$. This set always has two properties. First, it is an up-set: if it contains $F$, it contains every flat $G$ with $F\subseteq G$.
 
-The flats with $x_F=1$ form an up-set: if $F\subseteq G$ and $x_F=1$, then $x_G=1$. Two flats $F$ and $G$ form a *modular pair* when
+Two flats $F$ and $G$ form a *modular pair* when
 
 $$
 r_N(F)+r_N(G)=r_N(F\cup G)+r_N(F\cap G).
 $$
 
-If $x_F=x_G=1$ for a modular pair, then $x_{F\cap G}=1$. An up-set of flats with this property is a *modular cut*. [Crapo (1965)](https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p55_A1b.pdf) proved that modular cuts correspond bijectively to single-element extensions. We set $x_{E(N)}=1$ to count the nonempty cuts, which preserve the rank. The empty cut adds a coloop and raises the rank by one.
+Second, if the set contains both flats of a modular pair, it also contains their intersection. A *modular cut* is, by definition, a set of flats with these two properties. Thus the set associated with $M$ is a modular cut. [Crapo (1965)](https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p55_A1b.pdf) proved the converse: every modular cut determines a unique extension.
 
-The cut determines the rank function of $M$. For $X\subseteq E(N)$,
+For counting, assign a variable $x_F$ to each flat $F$ of $N$. Set $x_F=1$ when $F$ belongs to the modular cut, and $x_F=0$ otherwise. For $X\subseteq E(N)$, the corresponding extension $M$ has rank function
 
 $$
 r_M(X)=r_N(X),\qquad
 r_M(X\cup\{e\})=r_N(X)+1-x_{\operatorname{cl}_N(X)}.
 $$
+
+Taking $X=E(N)$ shows that $M$ has rank $r$ exactly when $x_{E(N)}=1$. Since the cut is an up-set, this is equivalent to the cut being nonempty. The empty cut adds a coloop, an element contained in every basis, and gives rank $r+1$. We require $x_{E(N)}=1$ in the count below.
 
 ## Counting modular cuts
 
