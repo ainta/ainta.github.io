@@ -62,8 +62,6 @@ We use one representative $N$ of each parent isomorphism class. After summing ov
 
 The other 12 cycle types have no fixed point. For one permutation $\sigma$ of each type, create a Boolean variable for each orbit of $r$-element subsets. A true variable selects every subset in its orbit as a basis. Require at least one basis and impose the basis exchange axiom. The satisfying assignments correspond exactly to the rank-$r$ matroids fixed by $\sigma$. An exact model counter counts them.
 
-The same construction applies to permutations with fixed points. For the identity at rank five, it would use $\binom{10}{5}=252$ variables, one for each potential basis. The calculation through nine-element matroids handles that case.
-
 ## Result
 
 At rank five, the extension calculation processes the $190\,214$ isomorphism classes of rank-five matroids on nine elements, independently across cores. Each flat is the closure of an independent set of its rank, so each parent has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
