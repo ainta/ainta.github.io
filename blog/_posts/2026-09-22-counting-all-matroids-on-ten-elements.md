@@ -46,7 +46,7 @@ Taking $X=E(N)$ shows that $M$ has rank $r$ exactly when $x_{E(N)}=1$. Since the
 
 Assign the flats of rank at most $r-2$ one at a time, propagating the conditions for a modular cut after each choice. Discard an assignment if propagation finds a contradiction. After these assignments, only hyperplanes, the flats of rank $r-1$, can remain undecided. We count their choices using independent sets of a graph.
 
-Distinct hyperplanes $H$ and $K$ have $r_N(H\cup K)=r$. They form a modular pair exactly when $r_N(H\cap K)=r-2$. If both remain undecided, then $x_{H\cap K}=0$. Otherwise, the up-set condition would have selected both hyperplanes. The modular cut therefore cannot contain both $H$ and $K$.
+Let $H$ and $K$ be distinct undecided hyperplanes. Their union has rank $r$, so they form a modular pair exactly when $r_N(H\cap K)=r-2$. Their intersection has already been assigned false. Otherwise, upward closure would have selected both hyperplanes. Thus, when $r_N(H\cap K)=r-2$, a modular cut cannot contain both $H$ and $K$.
 
 Let $G$ have one vertex for each undecided hyperplane. Join $H$ and $K$ when $r_N(H\cap K)=r-2$. After propagation, every remaining condition on the undecided hyperplanes has this form. Each independent set of $G$ determines exactly one way to select the remaining hyperplanes.
 
