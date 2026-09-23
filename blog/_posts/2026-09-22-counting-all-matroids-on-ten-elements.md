@@ -20,35 +20,28 @@ There are [$383\,172$ matroids on nine elements](https://arxiv.org/pdf/math/0702
 
 Let $N$ be a matroid of rank $r$ on nine elements, with ground set $E(N)$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $\lvert B\cap X\rvert$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ is the set of elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure.
 
-Two flats $F$ and $G$ form a *modular pair* when
+Two flats $F_1$ and $F_2$ form a *modular pair* when
 
 $$
-r_N(F)+r_N(G)=r_N(F\cup G)+r_N(F\cap G).
+r_N(F_1)+r_N(F_2)=r_N(F_1\cup F_2)+r_N(F_1\cap F_2).
 $$
 
 A *modular cut* $\mathcal C$ of $N$ is a set of flats satisfying both conditions:
 
-1. It is an up-set: if $F\in\mathcal C$ and $F\subseteq G$ for a flat $G$, then $G\in\mathcal C$.
-2. If $F,G\in\mathcal C$ form a modular pair, then $F\cap G\in\mathcal C$.
+1. It is an up-set: if $F\in\mathcal C$ and $F\subseteq F'$ for a flat $F'$, then $F'\in\mathcal C$.
+2. If $F_1,F_2\in\mathcal C$ form a modular pair, then $F_1\cap F_2\in\mathcal C$.
 
 Let $M$ be a single-element extension of $N$ by an element $e$, so $M\setminus e=N$. Consider the flats $F$ of $N$ for which $e\in\operatorname{cl}_M(F)$. [Crapo (1965)](https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p55_A1b.pdf) proved that these flats form a modular cut. Conversely, each modular cut of $N$ determines a unique extension on $E(N)\cup\{e\}$.
 
-For counting, encode a modular cut $\mathcal C$ by $x_F=1$ when $F\in\mathcal C$ and $x_F=0$ otherwise. For $X\subseteq E(N)$, the corresponding extension $M$ has rank function
-
-$$
-r_M(X)=r_N(X),\qquad
-r_M(X\cup\{e\})=r_N(X)+1-x_{\operatorname{cl}_N(X)}.
-$$
-
-Taking $X=E(N)$ shows that $M$ has rank $r$ exactly when $x_{E(N)}=1$. Since the cut is an up-set, this is equivalent to the cut being nonempty. The empty cut adds a coloop, an element contained in every basis, and gives rank $r+1$. We require $x_{E(N)}=1$ in the count below.
+Every nonempty modular cut contains $E(N)$, since it is an up-set. For its extension, $e\in\operatorname{cl}_M(E(N))$, so the rank remains $r$. The empty cut adds a coloop, an element contained in every basis, and raises the rank to $r+1$. We count the nonempty cuts below.
 
 ## Counting modular cuts
 
 Assign the flats of rank at most $r-2$ one at a time, propagating the conditions for a modular cut after each choice. Discard an assignment if propagation finds a contradiction. After these assignments, only hyperplanes, the flats of rank $r-1$, can remain undecided. We count their choices using independent sets of a graph.
 
-Let $H$ and $K$ be distinct undecided hyperplanes. Their union has rank $r$, so they form a modular pair exactly when $r_N(H\cap K)=r-2$. Their intersection has already been assigned false. Otherwise, upward closure would have selected both hyperplanes. Thus, when $r_N(H\cap K)=r-2$, a modular cut cannot contain both $H$ and $K$.
+Let $H$ and $K$ be distinct hyperplanes. Their union has rank $r$. They form a modular pair exactly when $r_N(H\cap K)=r-2$. Suppose both remain undecided. Their intersection is not in the cut, because the up-set condition would otherwise have selected both hyperplanes. If $r_N(H\cap K)=r-2$, selecting both would violate the modular-cut condition.
 
-Let $G$ have one vertex for each undecided hyperplane. Join $H$ and $K$ when $r_N(H\cap K)=r-2$. After propagation, every remaining condition on the undecided hyperplanes has this form. Each independent set of $G$ determines exactly one way to select the remaining hyperplanes.
+Let $G$ be the graph whose vertices are the undecided hyperplanes. Two vertices $H$ and $K$ are adjacent exactly when $r_N(H\cap K)=r-2$. After propagation, every remaining condition on the undecided hyperplanes has this form. Each independent set of $G$ determines exactly one way to select the remaining hyperplanes.
 
 For each consistent assignment to the flats of rank at most $r-2$, count the independent sets of its graph $G$. The sum is the number of nonempty modular cuts of $N$.
 
@@ -65,7 +58,7 @@ $$
 
 The number of fixed matroids depends only on the permutation's cycle type. There are 42 cycle types in $S_{10}$; 30 have a fixed point.
 
-For a permutation $\sigma$ with a fixed point, choose a fixed label $e$. If $e$ is not a coloop, then $N=M\setminus e$ has rank $r$. The restriction $g$ of $\sigma$ to $E(N)$ is an automorphism of $N$. The extensions fixed by $\sigma$ correspond exactly to the nonempty modular cuts of $N$ invariant under $g$.
+Let $M$ be a rank-$r$ matroid fixed by a permutation $\sigma$ with a fixed point $e$. If $e$ is not a coloop, then $N=M\setminus e$ has rank $r$. The restriction $g$ of $\sigma$ to $E(N)$ is an automorphism of $N$. The extensions fixed by $\sigma$ correspond exactly to the nonempty modular cuts of $N$ invariant under $g$.
 
 To count these cuts, use one variable for each orbit of flats under $g$. Selecting an orbit selects all its flats. If an undecided hyperplane orbit contains two hyperplanes whose intersection has rank $r-2$, that orbit cannot be selected. Form a graph on the remaining undecided hyperplane orbits. Join two orbits if a hyperplane from each has intersection of rank $r-2$. The independent sets give the remaining $g$-invariant choices.
 
