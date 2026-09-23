@@ -64,7 +64,7 @@ The other 12 cycle types have no fixed point. For one permutation $\sigma$ of ea
 
 ## Result
 
-At rank five, the extension calculation processes the $190\,214$ isomorphism classes of rank-five matroids on nine elements, independently across cores. Each flat is the closure of an independent set of its rank, so each parent has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
+At rank five, the computation processes the $190\,214$ isomorphism classes of rank-five matroids on nine elements; for each, it also counts the coloop extension of its rank-four dual. These computations run independently across cores. Each flat is the closure of an independent set of its rank, so each parent has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
 
 Among permutations without a fixed point, cycle type $(2,2,2,2,2)$ gives the largest formula at rank five, with 126 variables. We fix eight variables in all possible ways and solve the resulting 256 formulas separately.
 
