@@ -18,9 +18,7 @@ There are [$383\,172$ matroids on nine elements](https://arxiv.org/pdf/math/0702
 
 ## Extensions as modular cuts
 
-Let $N$ be a matroid of rank $r$ on nine elements, with ground set $E(N)$. Let $M$ be a single-element extension of $N$: $M\setminus e=N$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $\lvert B\cap X\rvert$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ is the set of elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure.
-
-The extension $M$ determines a set of flats of $N$: those $F$ for which $e\in\operatorname{cl}_M(F)$. This set always has two properties. First, it is an up-set: if it contains $F$, it contains every flat $G$ with $F\subseteq G$.
+Let $N$ be a matroid of rank $r$ on nine elements, with ground set $E(N)$. For $X\subseteq E(N)$, the rank $r_N(X)$ is the largest value of $\lvert B\cap X\rvert$ over bases $B$ of $N$. The closure $\operatorname{cl}_N(X)$ is the set of elements whose addition to $X$ does not increase its rank. A *flat* is a set equal to its closure.
 
 Two flats $F$ and $G$ form a *modular pair* when
 
@@ -28,9 +26,14 @@ $$
 r_N(F)+r_N(G)=r_N(F\cup G)+r_N(F\cap G).
 $$
 
-Second, if the set contains both flats of a modular pair, it also contains their intersection. A *modular cut* is, by definition, a set of flats with these two properties. Thus the set associated with $M$ is a modular cut. [Crapo (1965)](https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p55_A1b.pdf) proved the converse: every modular cut determines a unique extension.
+A *modular cut* $\mathcal C$ of $N$ is a set of flats satisfying both conditions:
 
-For counting, assign a variable $x_F$ to each flat $F$ of $N$. Set $x_F=1$ when $F$ belongs to the modular cut, and $x_F=0$ otherwise. For $X\subseteq E(N)$, the corresponding extension $M$ has rank function
+1. It is an up-set: if $F\in\mathcal C$ and $F\subseteq G$ for a flat $G$, then $G\in\mathcal C$.
+2. If $F,G\in\mathcal C$ form a modular pair, then $F\cap G\in\mathcal C$.
+
+Let $M$ be a single-element extension of $N$ by an element $e$, so $M\setminus e=N$. Consider the flats $F$ of $N$ for which $e\in\operatorname{cl}_M(F)$. [Crapo (1965)](https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p55_A1b.pdf) proved that these flats form a modular cut. Conversely, each modular cut of $N$ determines a unique extension on $E(N)\cup\{e\}$.
+
+For counting, encode a modular cut $\mathcal C$ by $x_F=1$ when $F\in\mathcal C$ and $x_F=0$ otherwise. For $X\subseteq E(N)$, the corresponding extension $M$ has rank function
 
 $$
 r_M(X)=r_N(X),\qquad
@@ -64,19 +67,21 @@ The number of fixed matroids depends only on the permutation's cycle type. There
 
 For a permutation $\sigma$ with a fixed point, choose a fixed label $e$. If $e$ is not a coloop, then $N=M\setminus e$ has rank $r$. The restriction $g$ of $\sigma$ to $E(N)$ is an automorphism of $N$. The extensions fixed by $\sigma$ correspond exactly to the nonempty modular cuts of $N$ invariant under $g$.
 
-To count these cuts, use one variable for each orbit of flats under $g$. The corresponding graph has one vertex for each undecided orbit of hyperplanes. Two vertices are adjacent if some pair of hyperplanes in their orbits has intersection of rank $r-2$. Propagation also handles pairs within one orbit.
+To count these cuts, use one variable for each orbit of flats under $g$. Selecting an orbit selects all its flats. If an undecided hyperplane orbit contains two hyperplanes whose intersection has rank $r-2$, that orbit cannot be selected. Form a graph on the remaining undecided hyperplane orbits. Join two orbits if a hyperplane from each has intersection of rank $r-2$. The independent sets give the remaining $g$-invariant choices.
 
 If $e$ is a coloop, $N$ has rank $r-1$ and gives one extension. At rank five, each such rank-four matroid is dual to a rank-five matroid on nine elements. Duality preserves its automorphism group.
 
-For a fixed label $e$, each isomorphism class of $N$ has $\frac{9!}{\lvert\operatorname{Aut}(N)\rvert}$ labelings of the other nine elements. For each cycle type on those nine elements, we sum the extension counts over these labelings and the relevant automorphisms. Dividing by the number of permutations of that type gives the number of matroids fixed by one permutation. Within $\operatorname{Aut}(N)$, we evaluate one representative per conjugacy class and multiply by its size. Automorphisms with the same cycle type on nine elements can act differently on the flats of $N$.
+Fix a cycle type $\mu$ on the nine labels other than $e$. For each labeled rank-$r$ parent $N$ and each automorphism $g$ of type $\mu$, count the nonempty modular cuts invariant under $g$. For rank-$(r-1)$ parents, count the coloop extension once for each such $g$. The sum counts pairs of a labeled rank-$r$ matroid and a permutation of type $\mu$ that fixes it. All permutations of type $\mu$ fix the same number of matroids, so divide the sum by the number of those permutations to obtain the fixed count for one permutation.
+
+We use one representative $N$ of each parent isomorphism class. After summing over its automorphisms of type $\mu$, we multiply by $\frac{9!}{\lvert\operatorname{Aut}(N)\rvert}$, the number of labelings of $N$. Conjugate automorphisms of $N$ fix the same number of extensions, so we count one per conjugacy class and multiply by its size.
 
 The other 12 cycle types have no fixed point. For one permutation $\sigma$ of each type, create a Boolean variable for each orbit of $r$-element subsets. A true variable selects every subset in its orbit as a basis. Require at least one basis and impose the basis exchange axiom. The satisfying assignments correspond exactly to the rank-$r$ matroids fixed by $\sigma$. An exact model counter counts them.
 
-The same construction applies to permutations with fixed points. For the identity, it would leave all $\binom{10}{5}=252$ basis variables free. The calculation through nine-element matroids handles that case.
+The same construction applies to permutations with fixed points. For the identity, it would use $\binom{10}{5}=252$ variables, one for each potential basis. The calculation through nine-element matroids handles that case.
 
 ## Result
 
-The rank-five extension calculation processes one representative of each of the $190\,214$ isomorphism classes on nine elements. These computations run independently across cores. Each matroid has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
+At rank five, the extension calculation processes the $190\,214$ isomorphism classes of rank-five matroids on nine elements. These computations run independently across cores. Each parent has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
 
 Among permutations without a fixed point, cycle type $(2,2,2,2,2)$ gives the largest formula at rank five, with 126 variables. We fix eight variables in all possible ways and solve the resulting 256 formulas separately.
 
