@@ -117,6 +117,6 @@ The [implementation](https://github.com/ainta/matroid-count) has a 481-line C++ 
 
 The implementation reproduces the known rank-three counts: 38 on six elements and 108 on seven. It also reproduces the rank-four counts: 940 on eight elements and 190,214 on nine. At ten elements, it agrees with the published rank-three and [rank-four counts](https://doi.org/10.1007/s00454-011-9388-y). The parent generator starts from the empty matroid and reproduces the published nine-element count.
 
-The [reproduction instructions](https://github.com/ainta/matroid-count/blob/main/docs/reproduction.md) give the commands for generating the parents and running this calculation.
+The [reproduction instructions](https://github.com/ainta/matroid-count#reproduce) give the commands for generating the parents and running this calculation.
 
 GPT-6 Astra helped discover and implement the optimized algorithms used in this calculation.
