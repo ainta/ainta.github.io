@@ -8,7 +8,7 @@ tags: [matroid, algorithms, enumeration]
 
 Let $E$ be a finite set. A **matroid** on $E$ is a nonempty family $\mathcal B$ of subsets of $E$, called bases, that satisfies the basis exchange axiom: for $B,C\in\mathcal B$ and $a\in B\setminus C$, there is a $b\in C\setminus B$ such that $(B\setminus\{a\})\cup\{b\}\in\mathcal B$. All bases have the same size, called the rank of the matroid.
 
-We count matroids on ten elements up to isomorphism. There are [$383\,172$ matroids on nine elements](https://arxiv.org/pdf/math/0702316) up to isomorphism. For ten elements, we find **$\mathbf{3\,232\,000\,741\,644}$**. Listing one representative of each class would require trillions of objects. We count single-element extensions of the nine-element matroids and use Burnside's lemma to obtain the number of isomorphism classes.
+We count matroids on ten elements up to isomorphism. There are [$383\,172$ matroids on nine elements](https://arxiv.org/pdf/math/0702316). For ten elements, we find **$\mathbf{3\,232\,000\,741\,644}$**. Listing one representative of each class would require trillions of objects. We count single-element extensions of the nine-element matroids and use Burnside's lemma to obtain the number of isomorphism classes. The ten-element count is now term $a(10)$ of OEIS [A055545](https://oeis.org/A055545), the number of unlabeled matroids on $n$ points.
 
 ## Extensions as modular cuts
 
@@ -27,7 +27,7 @@ A *modular cut* $\mathcal C$ of $N$ is a set of flats satisfying both conditions
 
 Let $M$ be a single-element extension of $N$ by an element $e$, so $M\setminus e=N$. Consider the flats $F$ of $N$ for which $e\in\operatorname{cl}_M(F)$. [Crapo (1965)](https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p55_A1b.pdf) proved that these flats form a modular cut and that each modular cut determines a unique extension on $E(N)\cup\{e\}$.
 
-Every nonempty modular cut contains $E(N)$, since it is an up-set. For its extension, $e\in\operatorname{cl}_M(E(N))$, so the rank remains $r$. The empty cut adds a coloop, an element contained in every basis, and raises the rank to $r+1$.
+Every nonempty modular cut contains $E(N)$, since it is an up-set. In the corresponding extension, $e\in\operatorname{cl}_M(E(N))$, so the rank remains $r$. The empty cut adds a coloop, an element contained in every basis, and raises the rank to $r+1$.
 
 ## Counting modular cuts
 
@@ -60,11 +60,11 @@ Fix a cycle type $\mu$ on the nine labels other than $e$. Sum the invariant none
 
 We use one representative $N$ of each parent isomorphism class. After summing over its automorphisms of type $\mu$, we multiply by $\frac{9!}{\lvert\operatorname{Aut}(N)\rvert}$, the number of labelings of $N$. Conjugate automorphisms of $N$ fix the same number of extensions, so we count one per conjugacy class and multiply by its size.
 
-The other 12 cycle types have no fixed point. For one permutation $\sigma$ of each type, create a Boolean variable for each orbit of $r$-element subsets. A true variable selects every subset in its orbit as a basis. Require at least one basis and impose the basis exchange axiom. The satisfying assignments correspond exactly to the rank-$r$ matroids fixed by $\sigma$. An exact model counter counts them.
+The other 12 cycle types have no fixed point. For one permutation $\sigma$ of each type, create a Boolean variable for each orbit of $r$-element subsets under $\sigma$. A true variable selects every subset in its orbit as a basis. Require at least one basis and impose the basis exchange axiom. The satisfying assignments correspond exactly to the rank-$r$ matroids fixed by $\sigma$. An exact model counter counts them.
 
 ## Result
 
-At rank five, the computation processes the $190\,214$ isomorphism classes of rank-five matroids on nine elements; for each, it also counts the coloop extension of its rank-four dual. These computations run independently across cores. Each flat is the closure of an independent set of its rank, so each parent has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
+At rank five, the computation processes the $190\,214$ isomorphism classes of rank-five matroids on nine elements, as many as at rank four by duality; for each, it also counts the coloop extension of its rank-four dual. These computations run independently across cores. Each flat is the closure of an independent set of its rank, so each parent has at most $\sum_{j=0}^{3}\binom9j=130$ flats of rank at most three and $\binom94=126$ hyperplanes.
 
 Among permutations without a fixed point, cycle type $(2,2,2,2,2)$ gives the largest formula at rank five, with 126 variables. We fix eight variables in all possible ways and solve the resulting 256 formulas separately.
 
@@ -81,7 +81,7 @@ Ranks zero through two follow from counting loops and parallel classes. The exte
 
 Duality gives the counts for ranks 6–10 from ranks 4–0. The sum over all ranks is $3\,232\,000\,741\,644$ matroids on ten elements up to isomorphism.
 
-The implementation uses a C++ program to count modular cuts and [Ganak](https://github.com/meelgroup/ganak) to count invariant families of bases for permutations without a fixed point. We generated the nine-element matroids with the [IC generator from gmou3's repository](https://github.com/gmou3/matroid-generator) and converted its basis output to rank arrays. On two AMD EPYC 9354 processors with 64 physical cores, generation and conversion took 3.8 seconds. Counting ranks three through five with 64 workers took 602 seconds, including 474 seconds for rank five.
+The implementation uses a C++ program to count modular cuts and [Ganak](https://github.com/meelgroup/ganak) to count invariant families of bases for permutations without a fixed point. We generated the nine-element matroids with the [IC generator from gmou3's repository](https://github.com/gmou3/matroid-generator) and converted its basis output to rank arrays. On two AMD EPYC 9354 processors with 64 physical cores in total, generation and conversion took 3.8 seconds. Counting ranks three through five with 64 workers took 602 seconds, including 474 seconds for rank five.
 
 Tests reproduce the [published counts](https://arxiv.org/pdf/math/0702316) 38, 108, 940, and $190\,214$ for $(n,r)=(6,3),(7,3),(8,4),(9,4)$, respectively. On ten elements, the computed ranks three and four agree with the [published rank-three](https://doi.org/10.1016/j.jcta.2017.05.001) and [rank-four](https://doi.org/10.1007/s00454-011-9388-y) counts. A [recorded comparison](https://github.com/ainta/matroid-count/blob/main/results/catalogue-comparison.json) checks the generated matroids through nine elements against the [public catalogue](https://zenodo.org/records/6825419).
 
